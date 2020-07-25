@@ -6,3 +6,4 @@ export const { useStore, StateProvider } = createStore(
   reducer,
   defaultAppState
 );
+

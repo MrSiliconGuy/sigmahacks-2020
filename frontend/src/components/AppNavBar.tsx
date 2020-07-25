@@ -8,10 +8,22 @@ import {
   Button,
 } from "react-bootstrap";
 import logoImg from "../../assets/logo.png";
+import { useStore } from "../store";
+import { useHistory } from "react-router-dom";
 
 type AppNavBarProps = {};
 
 export default function AppNavBar(props: AppNavBarProps) {
+  const history = useHistory();
+  const [state, dispatch] = useStore();
+
+  const handleLogout = () => {
+    dispatch({
+      type: "logout",
+    });
+    history.push("/");
+  };
+
   return (
     <Navbar sticky="top" bg="dark" variant="dark" expand="sm">
       <Navbar.Brand href="/">
@@ -32,12 +44,30 @@ export default function AppNavBar(props: AppNavBarProps) {
           <Nav.Link href="/business">Business</Nav.Link>
           <Nav.Link href="/hospital">Testing</Nav.Link>
         </Nav>
-        <Navbar.Text className="mr-3">Bryan Chen</Navbar.Text>
-        <Button variant="outline-light">Log out</Button>
-        {/* <Button variant="outline-light" className="mr-3">
-          Log in
-        </Button>
-        <Button variant="outline-light">Sign up</Button> */}
+        {state.loggedIn ? (
+          <>
+            <Navbar.Text className="mr-3">{state.name}</Navbar.Text>
+            <Button variant="outline-light" onClick={handleLogout}>
+              Log out
+            </Button>
+          </>
+        ) : (
+          <>
+            <Button
+              variant="outline-light"
+              className="mr-3"
+              onClick={() => history.push("/login")}
+            >
+              Log in
+            </Button>
+            <Button
+              variant="outline-light"
+              onClick={() => history.push("/signup")}
+            >
+              Sign up
+            </Button>
+          </>
+        )}
       </Navbar.Collapse>
     </Navbar>
   );

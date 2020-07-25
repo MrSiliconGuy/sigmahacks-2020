@@ -5,7 +5,7 @@ export type AppState = {
   username: string | null;
 };
 
-export type Action = LoginAction | LogoutAction;
+export type Action = LoginAction | LogoutAction | SetStateAction;
 
 export type LoginAction = {
   type: "login";
@@ -15,6 +15,10 @@ export type LoginAction = {
 };
 export type LogoutAction = {
   type: "logout";
+};
+export type SetStateAction = {
+  type: "set-state";
+  state: AppState;
 };
 
 export const defaultAppState: AppState = {

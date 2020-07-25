@@ -1,6 +1,5 @@
-import express from "express";
-const router = express.Router();
-
-router.get("/api");
-
-export { router };
+export * from "./login";
+export * from "./user";
+export * from "./business";
+export * from "./hospital";
+export * from "./place";

@@ -5,6 +5,16 @@ import UserProfileBottom from "./UserProfileBottom";
 
 type UserProfileViewProps = {};
 
+type User = {
+  id: string;
+  name: string;
+  address: string;
+  healthOrgID: string;
+  tests: Test[];
+  businessID?: string;
+  hospitalID?: string;
+};
+
 export default function UserProfileView(props: UserProfileViewProps) {
   return (
     <Container className="UserProfileView">

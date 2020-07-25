@@ -18,5 +18,7 @@ export function reducer(state: AppState, action: Action): AppState {
         name: null,
         username: null,
       };
+    case "set-state":
+      return { ...action.state };
   }
 }

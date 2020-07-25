@@ -27,6 +27,51 @@ body,
   grid-template-rows: auto 1fr;
 }
 
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.Homepage {
+  padding: $sp-3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  animation: fadeIn 3s linear;
+  .animate {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    animation: fadeInDown 2s linear;
+  }
+  img {
+    width: $sp-3 * 20;
+  }
+  h1 {
+    font-size: $f-h1 * 2;
+  }
+  p {
+    font-size: $f-lg;
+  }
+}
+
 .SignUpView {
   padding-top: $sp-3;
   padding-bottom: $sp-3;

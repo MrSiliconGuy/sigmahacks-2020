@@ -71,7 +71,7 @@ UserBase: {
   hospitalID: string;
 }
 UserLim: UserBase & {
-  test: Test;
+  lastTest: Test;
 }
 UserFull: UserBase & {
   tests: Test[];
@@ -93,7 +93,7 @@ HospitalBase: {
   testSchedule: string;
 }
 HospitalLim: HospitalBase & {
-  tests: number;
+  numTests: number;
 };
 HospitalFull: HospitalBase & {
   tests: Test[];
@@ -106,17 +106,31 @@ AllBusiness: {
 }
 
 SignupParams: {
+  name: string;
   username: string;
   password: string;
   address: string;
   healthOrgID: string;
+  businessInfo?: {
+    id: string;
+    name: string;
+    address: string;
+    description: string;
+    location: Coordinate;
+  };
+  hospitalInfo?: {
+    id: string;
+    name: string;
+    address: string;
+    testSchedule: string;
+    location: Coordinate;
+  };
 }
 LoginParams: {
   username: string;
   password: string;
 }
 LoginInfo: {
-  status: "ok" | "error";
   userID: string;
   token: string;
 }
@@ -136,38 +150,38 @@ Result: UserLim
 GET /api/user/info/:username?token=TOKEN
 Result: UserFull | UserLim (if invalid)
 
-GET /api/business/info/:id
+GET /api/business/:id/info
 Result: Business
 
-GET /api/hospital/info/:id
+GET /api/hospital/:id/info
 Result: HospitalLim
 
 GET /api/business/all
 Result: AllBusiness
 
-POST /api/business/employee?token=TOKEN
+POST /api/business/:id/employee?token=TOKEN
 Params: {
   userID: string;
 }
 Result: Status
 
-DELETE /api/business/employee?token=TOKEN
+DELETE /api/business/:id/employee?token=TOKEN
 Params: {
   userID: string;
 }
 Result: Status
 
-GET /api/hospital/info/:id?token=TOKEN
+GET /api/hospital/:id/info?token=TOKEN
 Result: HospitalFull | HospitalLim (if invalid)
 
 GET /api/hospital/all
 Result: AllHospital
 
-POST /api/hospital/update?token=TOKEN
+PATCH /api/hospital/:id/update?token=TOKEN
 Params: {
   testSchedule?: string;
 }
-Result: Status
+Result: HospitalFull
 
 POST /api/hospital/test?token=TOKEN
 Params: {

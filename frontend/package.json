@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "parcel public/index.html",
+    "watch": "parcel watch public/index.html --out-dir build --public-url static --no-source-maps --no-hmr",
     "build": "rimraf build && parcel build public/index.html --out-dir build --public-url static --no-source-maps",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -12,6 +13,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@babel/core": "^7.10.5",
     "parcel": "^1.12.4",
     "rimraf": "^3.0.2",
     "sass": "^1.26.10",
@@ -21,6 +23,7 @@
     "@types/react": "^16.9.43",
     "@types/react-dom": "^16.9.8",
     "@types/react-router-dom": "^5.1.5",
+    "axios": "^0.19.2",
     "bootstrap": "^4.5.0",
     "google-maps": "^4.3.2",
     "google-maps-react": "^2.0.6",
@@ -28,6 +31,7 @@
     "react": "^16.13.1",
     "react-bootstrap": "^1.3.0",
     "react-dom": "^16.13.1",
-    "react-router-dom": "^5.2.0"
+    "react-router-dom": "^5.2.0",
+    "regenerator-runtime": "^0.13.7"
   }
 }

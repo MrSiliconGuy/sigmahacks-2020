@@ -38,7 +38,8 @@ export type Hospital = {
   id: string;
   name: string;
   owner: string;
+  address: string;
   location: Coordinate;
   testSchedule: string;
-  test: Test[];
+  tests: Test[];
 };

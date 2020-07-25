@@ -1,17 +1,27 @@
 import express from "express";
+import bodyParser from "body-parser";
 import path from "path";
 import process from "process";
+import {
+  businessRouter,
+  hospitalRouter,
+  loginRouter,
+  userRouter,
+  placeRouter,
+} from "./routes";
 
 const app = express();
+app.use(bodyParser.json());
+
+// Routs
+app.use(loginRouter);
+app.use(userRouter);
+app.use(businessRouter);
+app.use(hospitalRouter);
+app.use(placeRouter);
+
+//Static files
 app.use("/static/", express.static(path.join(__dirname, "../frontend/build")));
-
-app.get("/api/:id", (req, res) => {
-  const { id } = req.params;
-  res.json({ hello: "world" });
-  console.log(id);
-  console.log(req.query.session);
-});
-
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "../frontend/build/index.html"));
 });
