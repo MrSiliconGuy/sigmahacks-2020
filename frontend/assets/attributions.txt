@@ -1,0 +1,4 @@
+Icons are from flaticon https://www.flaticon.com/
+user.png: By someone
+business.png: By FreePik
+hospital.png: By Payungkead

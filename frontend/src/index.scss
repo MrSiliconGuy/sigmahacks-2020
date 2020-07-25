@@ -1,1 +1,301 @@
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
+
+$sp-1: map-get($spacers, 1);
+$sp-2: map-get($spacers, 2);
+$sp-3: map-get($spacers, 3);
+$sp-4: map-get($spacers, 4);
+$sp-5: map-get($spacers, 5);
+$f-sm: $font-size-sm;
+$f-md: $font-size-base;
+$f-lg: $font-size-lg;
+$f-h1: $h1-font-size;
+$f-h2: $h2-font-size;
+$f-h3: $h3-font-size;
+$f-h4: $h4-font-size;
+$f-h5: $h5-font-size;
+$f-h6: $h6-font-size;
+
+html,
+body,
+#root {
+  height: 100vh;
+}
+
+.App {
+  height: 100%;
+  display: grid;
+  grid-template-rows: auto 1fr;
+}
+
+.SignUpView {
+  padding-top: $sp-3;
+  padding-bottom: $sp-3;
+  .sign-up-form {
+    .map {
+      height: $sp-3 * 20;
+      > div {
+        height: 100%;
+      }
+
+      margin-bottom: $sp-3;
+    }
+  }
+}
+
+.MapView {
+  margin: 0px;
+  padding: 0px;
+  .map-col-1 {
+    > div {
+      height: 100%;
+    }
+  }
+
+  .map-wrapper {
+    height: 100%;
+    width: 100%;
+    position: relative;
+  }
+}
+.MapList {
+  position: relative;
+  height: 100%;
+  h2 {
+    margin: 0px;
+    padding: $sp-3;
+    position: sticky;
+    top: 0;
+    background-color: white;
+  }
+  .inner-wrapper {
+    position: absolute;
+    overflow: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding-left: $sp-3;
+    padding-right: $sp-3;
+  }
+}
+.MapListItem {
+  display: flex;
+  flex-direction: column;
+
+  border-bottom: 1px solid $dark;
+  font-size: $f-lg;
+
+  .map-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .name {
+    font-size: $f-h4;
+  }
+}
+
+.MapContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.UserProfileView {
+  padding: $sp-3;
+}
+.UserProfileTop {
+  margin-bottom: $sp-3;
+
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+  // border: 1px solid $secondary;
+  img {
+    width: $sp-3 * 5;
+    height: $sp-3 * 5;
+  }
+  span {
+    font-size: $f-h4;
+  }
+  .profile {
+    padding: $sp-3;
+    border: 1px solid $secondary;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: $sp-3;
+  }
+  .profile-row {
+    display: flex;
+    flex-direction: row;
+  }
+  .info {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+}
+.UserProfileBottom {
+  .test-history {
+    margin-bottom: $sp-3;
+  }
+  table {
+    border-collapse: collapse;
+    td,
+    th {
+      border: 1px solid black;
+      padding: $sp-2;
+    }
+  }
+}
+
+.BusinessProfileView {
+  padding-top: $sp-3;
+}
+.BusinessProfileTop {
+  margin-bottom: $sp-3;
+
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+  img {
+    width: $sp-3 * 5;
+    height: $sp-3 * 5;
+  }
+  span {
+    font-size: $f-h4;
+  }
+  .profile {
+    padding: $sp-3;
+    border: 1px solid $secondary;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: $sp-3;
+  }
+  .profile-row {
+    display: flex;
+    flex-direction: row;
+  }
+  .info {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+  .map {
+    height: $sp-3 * 20;
+    > div {
+      height: 100%;
+    }
+  }
+}
+.BusinessProfileBottom {
+  table {
+    border-collapse: collapse;
+    td,
+    th {
+      border: 1px solid black;
+      padding: $sp-2;
+    }
+  }
+}
+
+.HospitalProfileView {
+  padding-top: $sp-3;
+}
+.HospitalProfileTop {
+  margin-bottom: $sp-3;
+
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+  img {
+    width: $sp-3 * 5;
+    height: $sp-3 * 5;
+  }
+  span {
+    font-size: $f-h4;
+  }
+  .profile {
+    padding: $sp-3;
+    border: 1px solid $secondary;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: $sp-3;
+  }
+  .profile-row {
+    display: flex;
+    flex-direction: row;
+  }
+  .info {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+  .map {
+    height: $sp-3 * 20;
+    > div {
+      height: 100%;
+    }
+  }
+}
+.HospitalProfileBottom {
+  p {
+    font-size: $f-h4;
+  }
+  table {
+    border-collapse: collapse;
+    td,
+    th {
+      border: 1px solid black;
+      padding: $sp-2;
+    }
+  }
+}
+
+.COVIDTrustBadge {
+  .result-wrapper {
+    padding: $sp-3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .result-wrapper.expanded {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: $light;
+    z-index: 10;
+  }
+  .result-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+  .result {
+    width: $sp-3 * 15;
+    height: $sp-3 * 15;
+    border-radius: 50%;
+    border: 1px solid $dark;
+    padding: $sp-3;
+    color: $white;
+    text-align: center;
+    background-color: $success;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    .text-1 {
+      font-size: $f-h1 * 1.5;
+    }
+    .text-2 {
+      font-size: $f-sm;
+    }
+  }
+}
