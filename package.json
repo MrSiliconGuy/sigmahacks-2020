@@ -1,0 +1,31 @@
+{
+  "name": "sigmahacks-2020",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "@types/express": "^4.17.7",
+    "@types/node": "^14.0.26",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4",
+    "typescript": "^3.9.7"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "nodemon dist/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mrsiliconguy/sigmahacks-2020.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mrsiliconguy/sigmahacks-2020/issues"
+  },
+  "homepage": "https://github.com/mrsiliconguy/sigmahacks-2020#readme"
+}
