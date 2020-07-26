@@ -1,9 +1,14 @@
 import React, { useState } from "react";
 
-type COVIDTrustBadgeProps = {};
+type COVIDTrustBadgeProps = {
+  result: "safe" | "sick" | "untested";
+};
 
-export default function COVIDTrustBadge(props: COVIDTrustBadgeProps) {
+export default function COVIDTrustBadge({ result }: COVIDTrustBadgeProps) {
   const [resultExpanded, setResultExpanded] = useState(false);
+
+  const resultClass =
+    result === "safe" ? "" : result === "sick" ? "danger" : "warning";
   return (
     <div className="COVIDTrustBadge">
       <div className={"result-wrapper " + (resultExpanded ? "expanded" : "")}>
@@ -19,9 +24,17 @@ export default function COVIDTrustBadge(props: COVIDTrustBadgeProps) {
             {resultExpanded ? "Close" : "Expand"}
           </a>
         </div>
-        <div className="result">
-          <span className="text-1">Safe</span>
-          <span className="text-2">Last test: 12 days</span>
+        <div className={"result " + resultClass}>
+          <span className="text-1">
+            {result === "safe"
+              ? "Safe"
+              : result === "sick"
+              ? "sick"
+              : "Untested"}
+          </span>
+          <span className="text-2">
+            Last test: {result === "untested" ? "never" : "12 days"}
+          </span>
         </div>
       </div>
     </div>

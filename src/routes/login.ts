@@ -89,7 +89,7 @@ router.post("/api/signup", (req, res) => {
   }
   const user: User = {
     id: data.username,
-    name: data.username,
+    name: data.name,
     address: data.address,
     healthOrgID: data.healthOrgID,
     login: {

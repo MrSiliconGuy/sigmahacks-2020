@@ -42,6 +42,7 @@ router.get("/api/hospital/all", (req, res) => {
     id: x.id,
     name: x.name,
     owner: x.owner,
+    address: x.address,
     location: x.location,
     testSchedule: x.testSchedule,
     numTests: x.tests.length,
@@ -81,14 +82,14 @@ type TestParams = {
   result: "positive" | "negative";
 };
 
-router.post("/api/hospital/test", (req, res) => {
+router.post("/api/hospital/:id/test", (req, res) => {
   const { token } = req.query;
   const { id } = req.params;
   const data = req.body as TestParams;
   const hospital = database.hospitals.get(id);
-  if (!hospital) return writeError(res);
-  const user = database.users.get(hospital.id);
-  if (!user || user.login.token !== token) return writeError(res);
+  if (!hospital) return writeError(res, "invalid hospital");
+  const user = database.users.get(data.userID);
+  if (!user || user.login.token !== token) return writeError(res, "invalid-user");
 
   const testUser = database.users.get(data.userID);
   if (!testUser) return writeError(res);

@@ -139,6 +139,9 @@ body,
     font-size: $f-h4;
   }
 }
+.MapListItem.highlight {
+  background-color: lightgray;
+}
 
 .MapContainer {
   position: relative;
@@ -162,6 +165,9 @@ body,
     height: $sp-3 * 5;
   }
   span {
+    font-size: $f-h4;
+  }
+  a {
     font-size: $f-h4;
   }
   .profile {
@@ -329,18 +335,26 @@ body,
     border-radius: 50%;
     border: 1px solid $dark;
     padding: $sp-3;
-    color: $white;
-    text-align: center;
+    color: $light;
     background-color: $success;
+    text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     .text-1 {
-      font-size: $f-h1 * 1.5;
+      font-size: $f-h1 * 1.2;
     }
     .text-2 {
       font-size: $f-sm;
     }
+  }
+  .result.warning {
+    color: $dark;
+    background-color: $warning;
+  }
+  .result.danger {
+    color: $light;
+    background-color: $danger;
   }
 }

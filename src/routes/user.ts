@@ -17,13 +17,14 @@ router.get("/api/user/:id/info", (req, res) => {
       address: user.address,
       businessID: user.businessID,
       hospitalID: user.hospitalID,
-      lastTest: user.tests[user.tests.length],
+      tests: [user.tests[user.tests.length]],
     });
   } else {
     res.json({
       id: user.id,
       name: user.name,
       address: user.address,
+      healthOrgID: user.healthOrgID,
       businessID: user.businessID,
       hospitalID: user.hospitalID,
       tests: user.tests,

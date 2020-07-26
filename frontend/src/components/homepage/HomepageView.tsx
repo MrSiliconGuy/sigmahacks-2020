@@ -9,7 +9,7 @@ export default function HomepageView() {
         <img src={logoImg} />
         <h1>COVID-Trust</h1>
       </div>
-      <p>Building trust within our local businesses and comunities</p>
+      <p>Building trust within our local businesses and communities</p>
     </Container>
   );
 }

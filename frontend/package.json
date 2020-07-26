@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "parcel public/index.html",
-    "watch": "parcel watch public/index.html --out-dir build --public-url static --no-source-maps --no-hmr",
-    "build": "rimraf build && parcel build public/index.html --out-dir build --public-url static --no-source-maps",
+    "watch": "parcel watch public/index.html --out-dir build --public-url /static --no-source-maps --no-hmr",
+    "build": "rimraf build && parcel build public/index.html --out-dir build --public-url /static --no-source-maps",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

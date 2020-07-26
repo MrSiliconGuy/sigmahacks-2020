@@ -1,8 +1,11 @@
 import React from "react";
+import { User } from "./UserProfileView";
 
-type UserProfileBottomProps = {};
+type UserProfileBottomProps = {
+  profile: User;
+};
 
-export default function UserProfileBottom(props: UserProfileBottomProps) {
+export default function UserProfileBottom({ profile }: UserProfileBottomProps) {
   return (
     <div className="UserProfileBottom">
       <div className="test-history">
@@ -16,16 +19,17 @@ export default function UserProfileBottom(props: UserProfileBottomProps) {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>August 2nd, 2020</td>
-              <td>12 days ago</td>
-              <td className="text-success">Clean (Negative)</td>
-            </tr>
-            <tr>
-              <td>August 1st, 2020</td>
-              <td>12 days ago</td>
-              <td className="text-success">Clean (Negative)</td>
-            </tr>
+            {profile.tests.map((t) => (
+              <tr>
+                <td>{new Date(t.date).toDateString()}</td>
+                <td>12 days ago</td>
+                {t.result === "positive" ? (
+                  <td className="text-danger">Sick (Negative)</td>
+                ) : (
+                  <td className="text-success">Safe (Positive)</td>
+                )}
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>
@@ -40,11 +44,6 @@ export default function UserProfileBottom(props: UserProfileBottomProps) {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>Business Co</td>
-              <td>business-name</td>
-              <td>Sept 7th, 2019</td>
-            </tr>
             <tr>
               <td>Business Co</td>
               <td>business-name</td>
